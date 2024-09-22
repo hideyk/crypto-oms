@@ -15,3 +15,7 @@ type Exchange struct {
 	BaseEndpoint    string
 	ApiKey          string
 }
+
+func (Exchange) GetRequest() {
+
+}
