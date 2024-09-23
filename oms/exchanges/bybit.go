@@ -100,17 +100,8 @@ func (e BybitExchange) PostRequest(client *http.Client, url string, endpoint str
 	return body
 }
 
-func NewBybitHeadersSecure(apiKey string, params map[string]interface{}, window time.Duration) map[string]interface{} {
-	return map[string]interface{}{
-		"X-BAPI-API-KEY":     apiKey,
-		"X-BAPI-TIMESTAMP":   time.Now().UnixMilli(),
-		"X-BAPI-SIGN":        "",
-		"X-BAPI-RECV-WINDOW": "",
-	}
-}
-
-func NewBybitTestClient(apiKey string) *base.Exchange {
-	return &base.Exchange{
+func NewBybitTestClient(apiKey string) *BybitExchange {
+	return &BybitExchange{
 		Id:           "bybit",
 		Name:         "Bybit",
 		Countries:    []string{"Japan"},
@@ -122,8 +113,8 @@ func NewBybitTestClient(apiKey string) *base.Exchange {
 	}
 }
 
-func NewBybitClient(apiKey string) *base.Exchange {
-	return &base.Exchange{
+func NewBybitClient(apiKey string) *BybitExchange {
+	return &BybitExchange{
 		Id:           "bybit",
 		Name:         "Bybit",
 		Countries:    []string{"Japan"},
